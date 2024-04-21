@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;1,300&display=swap");
+
+body {
+  font-family: "Raleway", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+.navbar {
+  background-color: red;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar ion-icon {
+  align-items: center;
+  font-size: 25px;
+}
+.user a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 200;
+  letter-spacing: 2px;
+}
+
+.user h3 {
+  text-transform: uppercase;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+}
+
+label {
+  color: #fff;
+  margin-right: 10px;
+}
+
+#search-user {
+  padding: 8px;
+  border: 1px solid #ccc;
+  background: transparent;
+  color: #fff;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+  width: 200px;
+  font-size: 14px;
+  border-color: #ff4d4d;
+  font-style: italic;
+}
+
+#search-user:focus {
+  outline: none;
+  border-color: #f43030;
+}
+
+#search-user::placeholder {
+  color: #fff;
+}
+
+.serach-suggesion {
+  position: absolute;
+  top: 60px;
+  left: 10px;
+  background-color: #fff;
+
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-height: 200px;
+  overflow-y: auto;
+  width: 200px;
+  z-index: 1000;
+}
+
+.serach-suggesion div {
+  color: #333;
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.serach-suggesion div:hover {
+  background-color: #f0f0f0;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-profile {
+  padding: 10px;
+  border-radius: 15px;
+  background-color: #f0f0f0;
+}
+
+.user-profile img {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 100px;
+}
+
+.user-posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+
+.post {
+  margin: 15px;
+}
+
+.post img {
+  min-width: 100%;
+  max-height: 500px;
+  border-radius: 7px;
+}
+
+.data h2 {
+  text-transform: capitalize !important;
+}
+
+.data span {
+  font-weight: bolder;
+}
+
+.post input[type="submit"] {
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+  background-color: #ff4d4d;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: background-color 0.3s;
+}
+
+.post input[type="submit"]:hover {
+  background-color: #ff3333;
+}
+
+.userdata {
+  max-width: 1000px;
+  margin: 0 auto;
+}

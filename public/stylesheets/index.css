@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Raleway&display=swap");
+
+body {
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.img1 {
+  width: auto;
+  height: 40px;
+}
+
+.header {
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+.detail {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: none;
+  box-sizing: border-box;
+  border-bottom: 2px solid darkgray;
+}
+
+input:focus {
+  outline: none;
+}
+
+.btn {
+  background-color: #bd081c;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.int {
+  margin-top: 20px;
+}
+
+footer {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+footer a {
+  color: #bd081c;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+hr {
+  margin: 10px 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+.flash-error{
+  color: red;
+}

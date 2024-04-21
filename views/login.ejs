@@ -1,0 +1,42 @@
+<!-- This code is made by Anneshu Nag, Student ID: 2210994760 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NK-ARTS Login</title>
+  <link rel="stylesheet" href="/stylesheets/login.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo-favicon.png">
+  <style>
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <img src="/images/logo.png" alt="NK-Arts logo" class="img1" />
+      
+      <p class="header">Login to NK-Arts</p>
+
+      <%if(error.length>0) { %>
+        <p class="error"><%=error%></p>
+        <%}%>
+        
+      <form id="registrationForm" action="/login" method="post">
+        <input type="text" name="username" placeholder="Username" class="detail" /><br />
+        <input type="password" name="password" placeholder="Password" class="detail" /><br />
+        <button type="submit" class="btn int">Login</button>
+      </form>
+  
+      <footer>
+        <p>
+          By continuing, you agree to our
+          <b>Terms of Service, Privacy policy.</b>
+        </p>
+        <hr />
+        <p>New on NK-Arts? <a href="/">Register!</a></p>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

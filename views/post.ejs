@@ -1,0 +1,85 @@
+<!-- This code is made by Anneshu Nag, Student ID: 2210994760 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= post.imageText %></title>
+    <link rel="stylesheet" href="/stylesheets/post.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/logo-favicon.png">
+</head>
+
+<body>
+    <div class="navbar">
+        <% if (req.isAuthenticated()) { %>
+            <a href="/users/searchuser" class="links"> <ion-icon name="search-outline"></ion-icon> <p>Search</p> </a>
+            <a href="/posts/artefacts" class="links"><ion-icon name="telescope-outline"></ion-icon></ion-icon> <p>Artefacts</p></a>
+            <a href="/users/profile" class="links"><ion-icon name="person-circle-outline"></ion-icon><p><%=user.username%></p></a>
+            </div>
+            <% } else { %>
+                <a href="/login" class="links"><ion-icon name="log-in-outline"></ion-icon><p>Login</p></a>
+            <% } %>
+    </div>
+    <div class="post-container">
+        <h3><%= post.imageText %></h3>
+        <h5>Posted by <strong><%= post.user.username %></strong> on <br> <%=post.createdAt%></h5>
+        <img class="postimage" src="/images/uploads/<%= post.image %>" alt="Post Image">
+        <div class="post-content">
+            <p class="likes">
+                <% if (post.likes && post.likes.length > 0) { %>
+                    <%= post.likes.length %> <%= post.likes.length === 1 ? 'like' : 'likes' %>
+                <% } else { %>
+                    0 likes
+                <% } %>
+            </p>
+            <%  if (req.isAuthenticated()) { %>
+                <form action="/posts/like/<%= post._id %>" method="POST">
+                    <button class="likebutton" type="submit">
+                        <% if (post.likes.includes(user._id)) { %>
+                            Dislike
+                        <% } else { %>
+                            Like
+                        <% } %>
+                    </button>
+                </form>
+                <form action="/posts/comments/<%= post.id %>" method="post">
+                    <input type="text" name="commentText" id="commentText" placeholder="Add a comment...">
+                    <input type="submit" value="Post Comment">
+                </form>
+            <% } else { %>
+                <a href="/login">Login to like and comment</a>
+            <% } %>
+        </div>
+    </div>
+    <div class="comments">
+        <% post.comments.forEach(comment => { %>
+            <div class="comment flex">
+                <div class="comment-content">
+                    <h4><%= comment.user.username %></h4>
+                    <p><%= comment.commentText %></p>
+                </div>
+                <div class="comment-likes">
+                    <%  if (req.isAuthenticated()) { %>
+                        <form action="/posts/likecomment/<%= comment.id %>?postId=<%=post.id%>" method="post">
+                            <button id="likecomment" type="submit">  
+                                <% if (comment.commentLikes.includes(user.id)) { %>
+                                    <ion-icon name="heart-dislike-outline"></ion-icon>
+                                  <% } else { %>
+                                    <ion-icon name="heart-outline"></ion-icon>
+                                  <% } %>
+                                <p><%=comment.commentLikes.length%></p>
+                            </button>
+                        </form>
+                    <% } else { %>
+                        <a href="/login">login to like</a>
+                    <% } %>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

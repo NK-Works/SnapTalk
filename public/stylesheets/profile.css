@@ -1,0 +1,208 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Raleway&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Raleway", Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+.navbar {
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: red;
+  color: #fff;
+  font-family: "Raleway";
+}
+
+.links{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+}
+
+.flex{
+  display: flex;
+  justify-content: center;
+}
+
+.navbar ion-icon {
+  font-weight: bolder;
+  font-size: x-large;
+}
+
+.main {
+  max-width: 800px;
+  margin: 50px auto;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+h2 {
+  text-align: center;
+}
+
+#close {
+  cursor: pointer;
+}
+
+#identity-container {
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(100%);
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 300px;
+  background-color: #1a1a1a;
+  z-index: 1000;
+  color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+#identity-container .heading {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+#identity-container .info-item {
+  margin-top: 10px;
+}
+
+#identity-container #logout-btn {
+  margin-top: 20px;
+}
+
+#fileform {
+  background-color: #ffcccc;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+input[type="text"],
+input[type="file"],
+input[type="submit"] {
+  font-family: "Raleway", sans-serif;
+  margin: 10px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input[type="text"] {
+  background-color: #ffe6e6;
+}
+
+input[type="file"] {
+  background-color: #ffe6e6;
+}
+
+input[type="submit"] {
+  background-color: #ff4d4d;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+  background-color: #ff3333;
+}
+
+.card-image {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  margin: 20px;
+  border: 1px solid #ddd;
+  max-width: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.info-item button{
+  padding: 10px;
+  font-size: 15px;
+  background: red;
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px 8px 0 0;
+}
+
+.card-header {
+  padding: 10px;
+  text-align: center;
+}
+
+.card-body,
+.card-footer {
+  text-align: center;
+  padding: 2px 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dp{
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  object-fit: cover;
+  /* left: 50%; */
+  transform: translate(100%);
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  margin: 0 10px;
+  padding: 5px 10px;
+  color: white;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #2980b9;
+}
