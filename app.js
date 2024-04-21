@@ -9,7 +9,7 @@ const flash = require("connect-flash");
 const {connectMongoDb} = require('./dbconnect/connection');   // To connect to the database
 
 // The routers
-const indexRouter = require('./routes/authRouter');
+const authRouter = require('./routes/authRouter');
 const userRouter = require('./routes/userRouter');
 const artefactRouter = require('./routes/artefactRouter');
 const factRouter = require('./routes/factRouter');
@@ -58,7 +58,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // The routes
-app.use('/', indexRouter);
+app.use('/', authRouter);
 app.use('/users', userRouter);
 app.use('/posts', artefactRouter);
 app.use('/facts', factRouter);

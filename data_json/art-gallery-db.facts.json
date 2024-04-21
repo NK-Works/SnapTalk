@@ -1,0 +1,150 @@
+[{
+  "_id": {
+    "$oid": "662513ca169efef44bbe2e8b"
+  },
+  "factText": "A large proportion of contemporary Aboriginal art is based on important ancient stories and symbols centred on 'the Dreamtime' – the period in which Indigenous people believe the world was created. The Dreamtime stories are up to and possibly even exceeding 50,000 years old, and have been handed down through the generations for all those years.",
+  "user": {
+    "$oid": "662513be169efef44bbe2e81"
+  },
+  "likes": [],
+  "createdAt": {
+    "$date": "2024-04-21T13:25:30.978Z"
+  },
+  "comments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662513db169efef44bbe2e95"
+  },
+  "factText": "Australian Aboriginal people have no written language of their own, and so the important stories central to the people's culture are based on the traditional icons (symbols)  and information in the artwork, which go hand in hand with recounted stories, dance or song, helping to pass on vital information and preserve their culture. Although it may be tempting to compare aboriginal art to a Western art movement, its origins are usually coming from a completely different visual language.",
+  "user": {
+    "$oid": "662513be169efef44bbe2e81"
+  },
+  "likes": [],
+  "createdAt": {
+    "$date": "2024-04-21T13:25:47.997Z"
+  },
+  "comments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662513ea169efef44bbe2e9f"
+  },
+  "factText": "Paintings are also used for teaching: A painting (in effect a visual story) is often used by Aboriginal people for different purposes, and the interpretations of the iconography (symbols) in the artwork can vary according to the audience. So the story may take one form when told to children and a very different and higher level form when speaking to initiated elders.",
+  "user": {
+    "$oid": "662513be169efef44bbe2e81"
+  },
+  "likes": [],
+  "createdAt": {
+    "$date": "2024-04-21T13:26:02.957Z"
+  },
+  "comments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662513fa169efef44bbe2ea9"
+  },
+  "factText": "Australia has always been multicultural. Before the arrival of Europeans, there were many different language groups and many different cultural ways.  Check out AIATSIS map of Indigenous Australia to learn more. With so many different languages, cultures and regions existing in Aboriginal Australia, it’s not surprising that different regions have different artistic styles and use different artistic media today!",
+  "user": {
+    "$oid": "662513be169efef44bbe2e81"
+  },
+  "likes": [],
+  "createdAt": {
+    "$date": "2024-04-21T13:26:18.256Z"
+  },
+  "comments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66251407169efef44bbe2eb3"
+  },
+  "factText": "Artists need permission to paint a particular story: Where ancient and important stories are concerned, and particularly those containing secret or sacred information, an artist must have permission to paint the story she or he paints. Traditional Aboriginal artists cannot paint a story that does not belong to them through family lineage.",
+  "user": {
+    "$oid": "662513be169efef44bbe2e81"
+  },
+  "likes": [],
+  "createdAt": {
+    "$date": "2024-04-21T13:26:31.563Z"
+  },
+  "comments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66251417169efef44bbe2ebd"
+  },
+  "factText": "Aboriginal art on canvas and board only began 50 years ago: Traditionally, the paintings we now see on canvas, were scratched or drawn on rock walls, used in body paint or on ceremonial articles and importantly, drawn in sand or dirt accompanied by the song or story. In 1971, Geoffrey Bardon a school teacher working with Aboriginal children in Papunya, noticed the Aboriginal men, while telling stories to others, were drawing symbols in the sand. He encouraged them to put these stories down on board and canvas, and there began the Aboriginal art movement. Since then, Australian Aboriginal Art has been tagged the most exciting contemporary art form of the 20th Century.",
+  "user": {
+    "$oid": "662513be169efef44bbe2e81"
+  },
+  "likes": [],
+  "createdAt": {
+    "$date": "2024-04-21T13:26:47.465Z"
+  },
+  "comments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66251455169efef44bbe2ec7"
+  },
+  "factText": "Dots were used to hide secret information: Dot painting in the main, began when the Aboriginal people became concerned that white man would be able to see and understand their sacred and private knowledge. The dots (sometimes called 'over-dotting') were used to obscure the secret iconography (symbols) underneath. This has morphed into the classical style, typified by artworks from the Pintupi tribe.",
+  "user": {
+    "$oid": "662513be169efef44bbe2e81"
+  },
+  "likes": [],
+  "createdAt": {
+    "$date": "2024-04-21T13:27:49.580Z"
+  },
+  "comments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662514ae169efef44bbe2eee"
+  },
+  "factText": "Aboriginal artworks belong in both galleries and museums. Indigenous Australian culture is the longest surviving culture the world has seen; it is complex and centred on long term survival in a hostile environment. It is rich in spiritual teachings, knowledge, and cultural behaviour, as well as the practical skills and knowledge required to survive. Therefore, Aboriginal Art has both artistic and anthropological merit. Works painted even in recent times can qualify equally for a place in a modern art gallery or a museum. This is one of the reasons it is so special and important.",
+  "user": {
+    "$oid": "66251479169efef44bbe2ed1"
+  },
+  "likes": [],
+  "createdAt": {
+    "$date": "2024-04-21T13:29:18.738Z"
+  },
+  "comments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662514ba169efef44bbe2ef8"
+  },
+  "factText": "The highest priced Aboriginal Artworks so far were painted by Clifford Possum Tjapaltjarri for the work 'Warlugulong' which sold in 2007 to the National Gallery of Australia (NGA) for a tidy sum of $2.4 million dollars. The record for an indigenous artwork painted by a woman (and the record for any female Australian artist), was achieved by Emily Kame Kngwarreye's work 'Earth's Creation' which sold in 2017 for $2.1 million.",
+  "user": {
+    "$oid": "66251479169efef44bbe2ed1"
+  },
+  "likes": [],
+  "createdAt": {
+    "$date": "2024-04-21T13:29:30.215Z"
+  },
+  "comments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662514ca169efef44bbe2f02"
+  },
+  "factText": "Aboriginal art has fostered cultural revival in an extremely good way for the Indigenous people. As the older artists teach the young, it has revitalised young Indigenous people's appreciation and knowledge of their culture. There have also been a number of intangible benefits, such as increasing self esteem and pride in ones culture. On the other side of the coin, non-Aboriginal people get to marvel at the beauty of Aboriginal art and begin to build stronger bridges of understanding.",
+  "user": {
+    "$oid": "66251479169efef44bbe2ed1"
+  },
+  "likes": [],
+  "createdAt": {
+    "$date": "2024-04-21T13:29:46.000Z"
+  },
+  "comments": [],
+  "__v": 0
+}]

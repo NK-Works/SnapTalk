@@ -1,6 +1,6 @@
 /* This code is made by Anneshu Nag, Student ID: 2210994760 */
 const express = require('express')
-const indexRouter = express.Router();
+const authRouter = express.Router();
 
 const passport = require("passport");
 
@@ -9,11 +9,11 @@ const { renderRegister,
   logout,
   } = require('../authentication/authenticationHandler');
 
-indexRouter.get("/", renderRegister);
+authRouter.get("/", renderRegister);
 
-indexRouter.get("/login", renderLogin);
+authRouter.get("/login", renderLogin);
 
-indexRouter.post(
+authRouter.post(
   "/login",
   passport.authenticate("local", {
     successRedirect: "/users/profile",
@@ -22,6 +22,6 @@ indexRouter.post(
   })
 );
 
-indexRouter.get("/logout", logout);
+authRouter.get("/logout", logout);
 
-module.exports = indexRouter;
+module.exports = authRouter;
