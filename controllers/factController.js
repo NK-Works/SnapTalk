@@ -10,6 +10,7 @@ async function uploadFact(req, res) {
     });
     const fact = await factModel.create({
       factText: req.body.factText,
+      factDescription:req.body.factdescription,
       user: user._id,
     });
 
@@ -21,6 +22,37 @@ async function uploadFact(req, res) {
     return res.send(error);
   }
 }
+
+
+// Function to update a post
+async function updateFact(req, res) {
+  const factId = req.params.factId;
+
+  try {
+    // Find the post by ID and update it with the new data
+    const updatedFact = await factModel.findByIdAndUpdate(
+      factId,
+      {
+        factText: req.body.factText,
+        factDescription: req.body.factDescription,
+      },
+      { new: true } // Return the updated document
+    );
+
+    if (!updatedFact) {
+      return res.status(404).send("Fact not found");
+    }
+
+    return res.redirect(`/users/profile`); // Redirect to the updated post or wherever you want
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send("Internal Server Error");
+  }
+}
+
+
+
+
 
 // Function to explore facts
 async function exploreFacts(req, res) {
@@ -154,6 +186,7 @@ async function likeFactComment(req, res) {
 // Exporting the required functions
 module.exports = {
   uploadFact,
+  updateFact,
   exploreFacts,
   deleteFact,
   readFact,

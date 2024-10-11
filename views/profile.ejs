@@ -77,7 +77,8 @@
 
     <div id="imageUpload" class="uploadSection">
       <form id="fileform" action="/posts/upload" enctype="multipart/form-data" method="post">
-        <input type="text" placeholder="Write caption!!" name="filecaption">
+        <input type="text" placeholder="Write title!!" name="filecaption">
+        <input type="text" placeholder="Write description (optional)" name="filedescription">
         <input type="file" name="file">
         <input type="submit" value="Upload">
       </form>
@@ -85,7 +86,8 @@
 
     <div id="textUpload" class="uploadSection" style="display: none;">
       <form id="fileform" action="/facts/uploadfact" method="post">
-        <input type="text" placeholder="Write caption!!" name="factText">
+        <input type="text" placeholder="Write title!!" name="factText">
+        <input type="text" placeholder="Write description (optional)" name="factdescription">
         <input type="submit" value="Upload">
       </form>
     </div>
@@ -98,6 +100,10 @@
           <img src="/images/uploads/<%= post.image %>" alt="Profile Image" />
           <p class="image-caption">
             <%= post.imageText %>
+          </p>
+          <p class="image-caption">
+            <%= post.imageDescription ? post.imageDescription : "No description added by user." %>
+
           </p>
         </div>
         <div class="card-footer">
@@ -124,7 +130,20 @@
             <form action="/posts/deletepost/<%= post._id %>" method="POST">
               <button class="button" type="submit">Delete</button>
             </form>
+            <div class="flex">
+              <button class="button" onclick="toggleUpdateForm('<%= post._id %>')">Update</button>
+
+            </div>
+            
           </div>
+          <div id="update-form-<%= post._id %>" class="update-form" style="display: none;">
+            <form action="/posts/updatepost/<%= post._id %>" method="POST">
+              <input type="text" name="filecaption" placeholder="Update title" value="<%= post.imageText %>">
+              <input type="text" name="filedescription" placeholder="Update description" value="<%= post.imageDescription %>">
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+          
           <form action="/posts/post/<%=post.id%>" method="get">
             <input type="submit" value="Read More">
           </form>
@@ -139,6 +158,9 @@
         <div class="card-header">
           <p class="image-caption">
             <%= fact.factText %>
+          </p>
+          <p class="image-caption">
+            <%= fact.factDescription ? fact.factDescription : "No description added by user." %>
           </p>
         </div>
         <div class="card-footer">
@@ -165,7 +187,19 @@
             <form action="/facts/deletefact/<%= fact._id %>" method="POST">
               <button class="button" type="submit">Delete</button>
             </form>
+            <div class="flex">
+              <button class="button" onclick="toggleUpdateForm('<%= fact._id %>')">Update</button>
+              
+            </div>
           </div>
+          <div id="update-form-<%= fact._id %>" class="update-form" style="display: none;">
+            <form action="/facts/updatefact/<%= fact._id %>" method="POST">
+              <input type="text" name="factText" placeholder="Update title" value="<%= fact.factText %>">
+              <input type="text" name="factDescription" placeholder="Update description" value="<%= fact.factDescription %>">
+              <button type="submit" class="blue-button">Submit</button>
+            </form>
+          </div>
+          
           <form action="/facts/fact/<%=fact.id%>" method="get">
             <input type="submit" value="Read More">
           </form>
@@ -187,6 +221,12 @@
     });
   </script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script>
+    function toggleUpdateForm(postId) {
+      const form = document.getElementById(`update-form-${postId}`);
+      form.style.display = form.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 </body>

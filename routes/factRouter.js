@@ -10,6 +10,7 @@ const {
     uploadFact,
     exploreFacts,
     deleteFact,
+    updateFact,
     readFact,
     factComments,
     likeFactComment,
@@ -25,6 +26,7 @@ factRouter.post('/uploadfact', isLoggedIn, uploadFact);
 factRouter.post('/likefact/:factId', isLoggedIn, toggleLikeFact);
 
 factRouter.post('/deletefact/:factId', isLoggedIn, deleteFact);
+factRouter.post('/updatefact/:factId', isLoggedIn, updateFact);
 
 factRouter.post('/factcomments/:factId', isLoggedIn, factComments);
 
