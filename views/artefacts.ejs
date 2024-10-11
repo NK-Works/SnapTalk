@@ -35,26 +35,29 @@
             <div class="container">
                 <% posts.forEach(post=> { %>
                     <div class="card">
-                        <div class="image-container">
-                            <h3>
-                                <%=post.user.username%>
-                            </h3>
-                            <img src="/images/uploads/<%= post.image %>" alt="Profile Image" />
-                            <p class="text-center">
-                                <%= post.imageText %>
-                            </p>
-                            <p class="text-center">
-                                <%= post.imageDescription ? post.imageDescription : "No description added by user." %>
-                            </p>
-                            
-                            <p class="text-center">
-                                <% if (post.likes && post.likes.length> 0) { %>
+                        <div  onclick="location.href='/posts/post/<%= post._id %>'" style="cursor: pointer;">
+
+                            <div class="image-container">
+                                <h3>
+                                    <%=post.user.username%>
+                                </h3>
+                                <img src="/images/uploads/<%= post.image %>" alt="Profile Image" />
+                                <p class="text-center">
+                                    <%= post.imageText %>
+                                </p>
+                                <p class="text-center">
+                                    <%= post.imageDescription ? post.imageDescription : "No description added by user." %>
+                                </p>
+                                
+                                <p class="text-center">
+                                    <% if (post.likes && post.likes.length> 0) { %>
                                     <%= post.likes.length %>
-                                        <%= post.likes.length===1 ? 'like' : 'likes' %>
-                                            <% } else { %>
-                                                0 likes
-                                                <% } %>
-                            </p>
+                                    <%= post.likes.length===1 ? 'like' : 'likes' %>
+                                    <% } else { %>
+                                        0 likes
+                                        <% } %>
+                                    </p>
+                                </div>
                             <% if (req.isAuthenticated()) { %>
                                 <div class="flex">
                                     <form action="/posts/like/<%= post._id %>" method="POST">
@@ -71,9 +74,7 @@
                                 <% } else { %>
                                     <a href="/login" id="login">Login to like</a>
                                     <% } %>
-                                        <form action="/posts/post/<%=post.id%>" method="get">
-                                            <input type="submit" value="Read More">
-                                        </form>
+
                         </div>
                     </div>
                     <% }) %>

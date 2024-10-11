@@ -95,27 +95,30 @@
 
   <div class="card-image">
     <% user.posts.forEach(post=> { %>
-      <div class="card">
-        <div class="card-header">
-          <img src="/images/uploads/<%= post.image %>" alt="Profile Image" />
-          <p class="image-caption">
-            <%= post.imageText %>
-          </p>
-          <p class="image-caption">
-            <%= post.imageDescription ? post.imageDescription : "No description added by user." %>
+      <div class="card " style="padding-bottom: 4px;">
+        <div  onclick="location.href='/posts/post/<%= post._id %>'" style="cursor: pointer;">
 
-          </p>
-        </div>
-        <div class="card-footer">
-          <p>
-            <% if (post.likes && post.likes.length> 0) { %>
-              <%= post.likes.length %>
+          <div class="card-header" style="margin: 0px;">
+            <img src="/images/uploads/<%= post.image %>" alt="Profile Image" />
+            <p class="image-caption" >
+              <%= post.imageText %>
+            </p>
+            <p class="image-caption" style="margin: 0px;">
+              <%= post.imageDescription ? post.imageDescription : "No description added by user." %>
+              
+            </p>
+          </div>
+          <div class="card-footer">
+            <p style="margin: 0px;">
+              <% if (post.likes && post.likes.length> 0) { %>
+                <%= post.likes.length %>
                 <%= post.likes.length===1 ? 'like' : 'likes' %>
-                  <% } else { %>
-                    0 likes
-                    <% } %>
-          </p>
-        </div>
+                <% } else { %>
+                  0 likes
+                  <% } %>
+                </p>
+              </div>
+            </div>
         <div class="card-body">
           <div class="flex">
             <form action="/posts/like/<%= post._id %>" method="POST">
@@ -143,10 +146,6 @@
               <button type="submit">Submit</button>
             </form>
           </div>
-          
-          <form action="/posts/post/<%=post.id%>" method="get">
-            <input type="submit" value="Read More">
-          </form>
         </div>
       </div>
       <% }); %>
@@ -155,6 +154,8 @@
   <div class="card-image">
     <% user.facts.forEach(fact=> { %>
       <div class="card">
+      <div  onclick="location.href='/facts/fact/<%= fact._id %>'" style="cursor: pointer;">
+
         <div class="card-header">
           <p class="image-caption">
             <%= fact.factText %>
@@ -167,25 +168,26 @@
           <p>
             <% if (fact.likes && fact.likes.length> 0) { %>
               <%= fact.likes.length %>
-                <%= fact.likes.length===1 ? 'like' : 'likes' %>
-                  <% } else { %>
-                    0 likes
-                    <% } %>
-          </p>
-        </div>
-        <div class="card-body">
-          <div class="flex">
-            <form action="/facts/likefact/<%= fact._id %>" method="POST">
-              <button class="button" type="submit">
-                <% if (fact.likes.includes(user._id)) { %>
-                  Dislike
-                  <% } else { %>
-                    Like
-                    <% } %>
-              </button>
-            </form>
-            <form action="/facts/deletefact/<%= fact._id %>" method="POST">
-              <button class="button" type="submit">Delete</button>
+              <%= fact.likes.length===1 ? 'like' : 'likes' %>
+              <% } else { %>
+                0 likes
+                <% } %>
+              </p>
+            </div>
+          </div>
+            <div class="card-body">
+              <div class="flex">
+                <form action="/facts/likefact/<%= fact._id %>" method="POST">
+                  <button class="button" type="submit">
+                    <% if (fact.likes.includes(user._id)) { %>
+                      Dislike
+                      <% } else { %>
+                        Like
+                        <% } %>
+                      </button>
+                    </form>
+                    <form action="/facts/deletefact/<%= fact._id %>" method="POST">
+                      <button class="button" type="submit">Delete</button>
             </form>
             <div class="flex">
               <button class="button" onclick="toggleUpdateForm('<%= fact._id %>')">Update</button>
@@ -199,10 +201,7 @@
               <button type="submit" class="blue-button">Submit</button>
             </form>
           </div>
-          
-          <form action="/facts/fact/<%=fact.id%>" method="get">
-            <input type="submit" value="Read More">
-          </form>
+
         </div>
       </div>
       <% }); %>

@@ -35,42 +35,42 @@
             <div class="container">
                 <% facts.forEach(fact=> { %>
                     <div class="card">
-                        <div class="image-container">
-                            <h3>
-                                <%=fact.user.username%>
-                            </h3>
-                            <p class="text-center">
-                                <%= fact.factText %>
-                            </p>
-                            <p class="text-center">
-                                <%= fact.factDescription ? fact.factDescription : "No description added by user." %>
-                            </p>
-                            <p class="text-center">
-                                <% if (fact.likes && fact.likes.length > 0) { %>
-                                    <%= fact.likes.length %>
-                                        <%= fact.likes.length === 1 ? 'like' : 'likes' %>
-                                            <% } else { %>
-                                                0 likes
-                                                <% } %>
-                            </p>
-                            <% if (req.isAuthenticated()) { %>
-                                <div class="flex">
-                                    <form action="/facts/likefact/<%= fact._id %>" method="POST">
-                                        <button class="likebutton" type="submit">
-                                            <% if (fact.likes.includes(user._id)) { %>
-                                                Dislike
+                        <div onclick="location.href='/facts/fact/<%= fact._id %>'" style="cursor: pointer;">
+
+                            <div class="image-container">
+                                <h3>
+                                    <%=fact.user.username%>
+                                </h3>
+                                <p class="text-center">
+                                    <%= fact.factText %>
+                                </p>
+                                <p class="text-center">
+                                    <%= fact.factDescription ? fact.factDescription : "No description added by user." %>
+                                </p>
+                                <p class="text-center">
+                                    <% if (fact.likes && fact.likes.length> 0) { %>
+                                        <%= fact.likes.length %>
+                                            <%= fact.likes.length===1 ? 'like' : 'likes' %>
                                                 <% } else { %>
-                                                    Like
+                                                    0 likes
                                                     <% } %>
-                                        </button>
-                                    </form>
-                                </div>
+                                </p>
+                            </div>
+                                <% if (req.isAuthenticated()) { %>
+                                    <div class="flex">
+                                        <form action="/facts/likefact/<%= fact._id %>" method="POST">
+                                            <button class="likebutton" type="submit">
+                                                <% if (fact.likes.includes(user._id)) { %>
+                                                    Dislike
+                                                    <% } else { %>
+                                                        Like
+                                                        <% } %>
+                                                    </button>
+                                                </form>
+                                            </div>
                                 <% } else { %>
                                     <a href="/login" id="login">Login to like</a>
                                     <% } %>
-                                        <form action="/facts/fact/<%= fact.id %>" method="get">
-                                            <input type="submit" value="Read More">
-                                        </form>
                         </div>
                     </div>
                     <% }) %>
