@@ -23,6 +23,9 @@ const factSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  factDescription: {
+    type: String,
+  },
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',

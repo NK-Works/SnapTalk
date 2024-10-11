@@ -12,6 +12,7 @@ const {
     exploreArtefacts,
     readPost,
     uploadPost,
+    updatePost,
     toggleLikePost,
     deletePost,
     postComments,
@@ -27,6 +28,7 @@ postRouter.post("/upload", upload.single("file"), uploadPost);
 postRouter.post('/like/:postId', isLoggedIn, toggleLikePost);
 
 postRouter.post('/deletepost/:postId',isLoggedIn, deletePost);
+postRouter.post('/updatepost/:postId',isLoggedIn, updatePost);
 
 postRouter.post('/comments/:postId',isLoggedIn,postComments);
 

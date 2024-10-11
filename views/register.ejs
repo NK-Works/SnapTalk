@@ -1,64 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NK-Arts Registration</title>
-    <link rel="stylesheet" href="/stylesheets/index.css" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/images/logo-favicon.png"
-    />
-  </head>
-  <body>
-    <div class="container">
-      <div class="content">
-        <img src="/images/logo.png" alt="arts logo" class="img1" />
-        <p class="header">
-          <span class="join-animation">Sign up to join</span>
-        </p>
-        <% if (messages.error && messages.error.length > 0) { %>
-        <div class="flash-error"><%= messages.error[0] %></div>
-        <% } %>
-        <form id="registrationForm" action="/users/register" method="post">
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            class="detail"
-          /><br />
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            class="detail"
-          /><br />
-          <input
-            type="text"
-            name="fullname"
-            placeholder="Full Name"
-            class="detail"
-          /><br />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            class="detail"
-          /><br />
-          <button type="submit" class="btn int">Sign up</button>
-        </form>
 
-        <footer>
-          <p>
-            By continuing, you agree to our
-            <b>Terms of Service, Privacy policy.</b>
-          </p>
-          <hr />
-          <p>Already on NK-Arts? <a href="/login">Log in</a></p>
-        </footer>
-      </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SnapTalkRegistration</title>
+  <link rel="stylesheet" href="/stylesheets/index.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo-favicon.png">
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <img src="/images/logo.png" alt="arts logo" class="img1" />
+      <p class="header">Sign up to join</p>
+      <% if (messages.error && messages.error.length > 0) { %>
+        <div class="flash-error">
+          <%= messages.error[0] %>
+        </div>
+      <% } %>
+      <form id="registrationForm" action="/users/register" method="post">
+        <input type="email" name="email" placeholder="Email" class="detail" /><br />
+        <input type="text" name="username" placeholder="Username" class="detail" /><br />
+        <input type="text" name="fullname" placeholder="Full Name" class="detail" /><br />
+        <input type="password" name="password" placeholder="Password" class="detail" /><br />
+        <button type="submit" class="btn int">Sign up</button>
+      </form>
+  
+      <footer>
+        <p>
+          By continuing, you agree to our
+          <b>Terms of Service, Privacy policy.</b>
+        </p>
+        <hr />
+        <p>Already on SnapTalk? <a href="/login">Log in</a></p>
+      </footer>
+
     </div>
   </body>
 </html>

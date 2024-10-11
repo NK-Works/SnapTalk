@@ -52,16 +52,28 @@ async function registerUser(req, res) {
 // Function to search for users
 async function search(req, res) {
   const query = req.query.query;
+
   try {
+    // Find users matching the query
     const users = await userModel.find({
       username: { $regex: new RegExp(query, "i") },
     });
-    res.json(users);
+
+    // Sort users based on the number of matches
+    const sortedUsers = users.sort((a, b) => {
+      const aMatches = (a.username.match(new RegExp(query, "gi")) || []).length;
+      const bMatches = (b.username.match(new RegExp(query, "gi")) || []).length;
+      return bMatches - aMatches; // Sort in descending order
+    });
+
+    res.json(sortedUsers);
   } catch (error) {
     console.error("Error searching for users:", error);
     res.status(500).send("Internal Server Error");
   }
 }
+
+
 
 // Function to render search page
 async function getSearch(req, res) {
@@ -77,6 +89,7 @@ async function getSearch(req, res) {
 
 // Function to get user data by user ID
 async function user(req, res) {
+  
   const userId = req.params.userId;
   try {
     const user = await userModel.findById(userId).populate("posts").populate("facts");

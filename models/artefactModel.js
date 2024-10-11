@@ -23,6 +23,10 @@ const artefactSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  imageDescription: {
+    type: String,
+    
+  },
   image: {
     type: String,
   },
