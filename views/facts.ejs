@@ -43,6 +43,9 @@
                                 <%= fact.factText %>
                             </p>
                             <p class="text-center">
+                                <%= fact.factDescription ? fact.factDescription : "No description added by user." %>
+                            </p>
+                            <p class="text-center">
                                 <% if (fact.likes && fact.likes.length > 0) { %>
                                     <%= fact.likes.length %>
                                         <%= fact.likes.length === 1 ? 'like' : 'likes' %>

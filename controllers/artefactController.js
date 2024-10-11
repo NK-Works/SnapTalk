@@ -14,6 +14,7 @@ async function uploadPost(req, res) {
     const post = await postModel.create({
       image: req.file.filename,
       imageText: req.body.filecaption,
+      imageDescription:req.body.filedescription,
       user: user._id,
     });
 
@@ -24,6 +25,34 @@ async function uploadPost(req, res) {
     return res.send(error);
   }
 }
+
+
+// Function to update a post
+async function updatePost(req, res) {
+  const postId = req.params.postId;
+
+  try {
+    // Find the post by ID and update it with the new data
+    const updatedPost = await postModel.findByIdAndUpdate(
+      postId,
+      {
+        imageText: req.body.filecaption,
+        imageDescription: req.body.filedescription,
+      },
+      { new: true } // Return the updated document
+    );
+
+    if (!updatedPost) {
+      return res.status(404).send("Post not found");
+    }
+
+    return res.redirect(`/users/profile`); // Redirect to the updated post or wherever you want
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send("Internal Server Error");
+  }
+}
+
 
 // Function to explore artefacts
 async function exploreArtefacts(req, res) {
@@ -161,6 +190,7 @@ async function likecomment(req, res) {
 // Exporting the required functions
 module.exports = {
   uploadPost,
+  updatePost,
   exploreArtefacts,
   deletePost,
   readPost,
