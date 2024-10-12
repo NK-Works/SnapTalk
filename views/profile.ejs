@@ -104,7 +104,7 @@
               <%= post.imageText %>
             </p>
             <p class="image-caption" style="margin: 0px;">
-              <%= post.imageDescription ? post.imageDescription : "No description added by user." %>
+              <%= post.imageDescription ? post.imageDescription.substring(0, 100) : "No description added by user." %><%= post.imageDescription && post.imageDescription.length > 100 ? '...' : '' %>
               
             </p>
           </div>

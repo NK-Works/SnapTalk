@@ -4,15 +4,17 @@
 body {
   margin: 0;
   font-family: 'Raleway', sans-serif;
+  background-color: #f4f4f4;
   width: 100vw;
 }
 
 .navbar {
   display: flex;
   justify-content: space-around;
-  width: 100vw;
+  width: 100%;
   background-color: red;
   color: #fff;
+  padding: 10px;
 }
 
 .navbar ion-icon {
@@ -30,19 +32,76 @@ body {
 }
 
 .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 15px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.02);
 }
 
 .image-container {
-  margin: 20px;
   text-align: center;
+  margin-bottom: 15px;
 }
 
-img {
-  max-width: 100%;
-  height: 100vh;
+.post-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.text-center {
+  text-align: center;
+  margin: 5px 0;
+  font-size: 0.9em;
+  color: #333;
+}
+
+.likes-count {
+  font-size: 0.85em;
+  color: #666;
+}
+
+.like-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.like-button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  text-align: center;
+  max-width: 200px; /* Limit button's width for better visual balance */
+}
+
+.like-button:hover {
+  background-color: #2980b9;
 }
 
 input[type="submit"] {
@@ -58,40 +117,49 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background-color: #ff3333; 
+  background-color: #ff3333;
 }
 
-.flex {
-  display: flex;
-  justify-content: center;
-}
-
-.card {
-  background: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  overflow: hidden;
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 1000px;
-}
-
-.likebutton {
-  padding: 10px 20px;
-  background-color: #3498db;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.likebutton:hover {
-  background-color: #2980b9;
-}
-
-.text-center {
+.login-prompt {
   text-align: center;
+  color: #007BFF;
+  text-decoration: none;
+  display: block;
+  margin-top: 10px;
+}
+
+.login-prompt:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  .like-button {
+    max-width: 100%;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .links {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    grid-template-columns: 1fr;
+    padding: 5px;
+  }
+
+  .card {
+    padding: 10px;
+  }
 }
