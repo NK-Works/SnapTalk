@@ -13,11 +13,7 @@ const userSchema = new mongoose.Schema({
   },
   posts: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref:'Artefact', 
-  }],
-  facts: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref:'Fact',
+    ref:'Post', 
   }],
   dp: {
     type: String,

@@ -11,8 +11,7 @@ const { connectMongoDb } = require("./dbconnect/connection"); // To connect to t
 // The routers
 const authRouter = require("./routes/authRouter");
 const userRouter = require("./routes/userRouter");
-const artefactRouter = require("./routes/artefactRouter");
-const factRouter = require("./routes/factRouter");
+const postRouter = require("./routes/postRouter");
 const userModel = require("./models/userModel");
 
 // Passport for authentication
@@ -66,8 +65,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // The routes
 app.use("/", authRouter);
 app.use("/users", userRouter);
-app.use("/posts", artefactRouter);
-app.use("/facts", factRouter);
+app.use("/posts", postRouter);
 
 // 404 route
 app.get("*", (req, res) => {

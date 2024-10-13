@@ -14,7 +14,7 @@
     <div class="navbar">
         <% if (req.isAuthenticated()) { %>
             <a href="/users/searchuser" class="links"> <ion-icon name="search-outline"></ion-icon> <p>Search</p> </a>
-            <a href="/posts/artefacts" class="links"><ion-icon name="telescope-outline"></ion-icon></ion-icon> <p>Artefacts</p></a>
+            <a href="/posts/all-posts" class="links"><ion-icon name="telescope-outline"></ion-icon></ion-icon> <p>Posts</p></a>
             <a href="/users/profile" class="links"><ion-icon name="person-circle-outline"></ion-icon><p><%=user.username%></p></a>
             </div>
             <% } else { %>

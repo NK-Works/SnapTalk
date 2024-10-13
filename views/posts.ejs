@@ -1,0 +1,70 @@
+<!-- This code is made by Anneshu Nag, Student ID: 2210994760 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+    <link rel="stylesheet" href="/stylesheets/posts.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/logo-favicon.png">
+</head>
+
+<body>
+    <div class="navbar">
+        <% if (req.isAuthenticated()) { %>
+            <a href="/users/profile" class="links"><ion-icon name="person-circle-outline"></ion-icon>
+                <p><%= user.username %></p>
+            </a>
+            <a href="/users/searchuser" class="links"><ion-icon name="search-outline"></ion-icon>
+                <p>Search</p>
+            </a>
+            <a href="/logout" class="links"><ion-icon name="log-out-outline"></ion-icon>
+                <p>Logout</p>
+            </a>
+        <% } else { %>
+            <a href="/login" class="links"><ion-icon name="log-in-outline"></ion-icon>
+                <p>Login</p>
+            </a>
+        <% } %>
+    </div>
+
+    <div class="container">
+        <% posts.forEach(post => { %>
+            <div class="card">
+                <div class="card-content" onclick="location.href='/posts/post/<%= post._id %>'" style="cursor: pointer;">
+                    <div class="image-container">
+                        <h3 class="username"><%= post.user.username %></h3>
+                        <img src="/images/uploads/<%= post.image %>" alt="Profile Image" class="post-image" />
+                        <p class="text-center">
+                            <%= post.imageText.substring(0, 50) %><%= post.imageText.length > 50 ? '...' : '' %>
+                        </p>
+                        <p class="text-center">
+                            <%= post.imageDescription ? post.imageDescription.substring(0, 100) : "No description added by user." %><%= post.imageDescription && post.imageDescription.length > 100 ? '...' : '' %>
+                        </p>
+                        <p class="text-center likes-count">
+                            <%= post.likes && post.likes.length > 0 ? post.likes.length : '0' %> 
+                            <%= post.likes.length === 1 ? 'like' : 'likes' %>
+                        </p>
+                    </div>
+
+                    <% if (req.isAuthenticated()) { %>
+                        <div class="like-section">
+                            <form action="/posts/like/<%= post._id %>" method="POST">
+                                <button class="like-button" type="submit">
+                                    <%= post.likes.includes(user._id) ? 'Dislike' : 'Like' %>
+                                </button>
+                            </form>
+                        </div>
+                    <% } else { %>
+                        <a href="/login" class="login-prompt">Login to like</a>
+                    <% } %>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

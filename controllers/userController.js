@@ -9,7 +9,6 @@ async function userProfile(req, res) {
       username: req.session.passport.user,
     })
     .populate("posts")
-    .populate("facts");
   return res.render("profile", { user });
 }
 
@@ -89,40 +88,12 @@ async function getSearch(req, res) {
 
 // Function to get user data by user ID
 async function user(req, res) {
-  
   const userId = req.params.userId;
   try {
-    const user = await userModel.findById(userId).populate("posts").populate("facts");
+    const user = await userModel.findById(userId).populate("posts");
     res.json(user);
   } catch (error) {
     console.error("Error fetching user data:", error);
-    res.status(500).send("Internal Server Error");
-  }
-}
-
-async function updateProfile(req, res) {
-  const userId = req.params.userId;
-  try {
-    let newpassword = req.body.password || null;
-    console.log(req.body)
-    const user = await userModel.findById(userId);
-    if(newpassword){
-      if (newpassword.length < 6) {
-        return next(
-          errorHandler(400, "Password must be at least 6 characters long")
-        );
-      }
-      newpassword = bcrypt.hashSync(newpassword, 10);
-      user.password = newpassword;
-    }
-
-    user.fullname = req.body.fullname;
-    user.username = req.body.username;
-    user.email = req.body.email;
-    await user.save();
-    res.redirect("/users/profile");
-  } catch (error) {
-    console.error("Error updating user data:", error);
     res.status(500).send("Internal Server Error");
   }
 }
@@ -134,5 +105,4 @@ module.exports = {
   search,
   getSearch,
   user,
-  updateProfile
 };
