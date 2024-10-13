@@ -12,7 +12,8 @@ const {
     getSearch,
     user,
     search,
-    registerUser
+    registerUser,
+    updateProfile
 } = require('../controllers/userController')
 
 userRouter.post("/register", registerUser);
@@ -24,5 +25,7 @@ userRouter.get('/searchuser',getSearch);
 userRouter.get('/user/:userId',user)
 
 userRouter.get('/search',search);
+
+userRouter.post('/updateProfile/:userId',isLoggedIn,updateProfile);
 
 module.exports = userRouter;
