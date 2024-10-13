@@ -95,6 +95,7 @@ h2 {
 }
 
 input[type="text"],
+input[type="password"],
 input[type="file"],
 input[type="submit"] {
   font-family: "Raleway", sans-serif;
@@ -106,7 +107,7 @@ input[type="submit"] {
   box-sizing: border-box;
 }
 
-input[type="text"] {
+input[type="text"],input[type="password"] {
   background-color: #ffe6e6;
 }
 
@@ -244,4 +245,41 @@ button:hover {
   .card-body {
     padding: 5px;
   }
+}
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); 
+  backdrop-filter: blur(10px); 
+  z-index: 999; 
+}
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; 
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  width: 400px;
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.button {
+  margin: 10px;
 }
