@@ -24,7 +24,11 @@
     <div class="post-container">
         <h2><%= post.imageText %></h2>
         <h3><%= post.imageDescription %></h3>
-        <h5>Posted by <strong><%= post.user.username %></strong> on <br> <%=post.createdAt%></h5>
+        <div class="post-info">
+            <h5>Posted by <strong><%= post.user.username %></strong></h5>
+            <h5><%=post.createdAt.toString().slice(0, 10)%></h5>
+        </div>
+        <br>
         <img class="postimage" src="/images/uploads/<%= post.image %>" alt="Post Image">
         <div class="post-content">
             <p class="likes">
