@@ -20,20 +20,30 @@
 
 <body>
   <div class="navbar">
-    <a href="/users/searchuser" class="links"> <ion-icon name="search-outline"></ion-icon>
-      <p>Search</p>
-    </a>
-    <a href="/posts/artefacts" class="links"><ion-icon name="telescope-outline"></ion-icon></ion-icon>
-      <p>Artefacts</p>
-    </a>
-    <a href="/facts/explorefacts" class="links"><ion-icon name="telescope-outline"></ion-icon></ion-icon>
-      <p>Facts</p>
-    </a>
-    <div class="links" id="userToggle">
-      <ion-icon name="person-circle-outline"></ion-icon>
-      <h3>
-        <%=user.username%>
-      </h3>
+    <div class="nav-item">
+      <a href="/users/searchuser" class="links"> <ion-icon name="search-outline"></ion-icon>
+        <p>Search</p>
+      </a>
+      <a href="/posts/artefacts" class="links"><ion-icon name="telescope-outline"></ion-icon></ion-icon>
+        <p>Artefacts</p>
+      </a>
+      <a href="/facts/explorefacts" class="links"><ion-icon name="telescope-outline"></ion-icon></ion-icon>
+        <p>Facts</p>
+      </a>
+      <div class="links" id="userToggle">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <h3>
+          <%=user.username%>
+        </h3>
+      </div>
+    </div>
+    <div class="dark-mode">
+      <label class="ui-switch">
+        <input type="checkbox">
+        <div class="slider">
+          <div class="circle"></div>
+        </div>
+      </label>
     </div>
   </div>
 
@@ -69,27 +79,29 @@
       </div>
     </div>
 
-    <label for="uploadType">Choose upload type:</label>
-    <select id="uploadType" name="uploadType">
-      <option value="image">Artefact</option>
-      <option value="text">Fact</option>
-    </select>
+  <label for="uploadType" class="upload-label">Choose upload type:</label>
+<select id="uploadType" name="uploadType" class="upload-select">
+  <option value="image">Artefact</option>
+  <option value="text">Fact</option>
+</select>
 
-    <div id="imageUpload" class="uploadSection">
-      <form id="fileform" action="/posts/upload" enctype="multipart/form-data" method="post">
-        <input type="text" placeholder="Write caption!!" name="filecaption">
-        <input type="file" name="file">
-        <input type="submit" value="Upload">
-      </form>
-    </div>
+<div id="imageUpload" class="uploadSection">
+  <form id="fileform" action="/posts/upload" enctype="multipart/form-data" method="post">
+    <input type="text" placeholder="Write caption!!" name="filecaption" class="input-field">
+    <input type="file" name="file" class="input-field">
+    <input type="submit" value="Upload" class="submit-btn">
+  </form>
+</div>
 
-    <div id="textUpload" class="uploadSection" style="display: none;">
-      <form id="fileform" action="/facts/uploadfact" method="post">
-        <input type="text" placeholder="Write caption!!" name="factText">
-        <input type="submit" value="Upload">
-      </form>
-    </div>
-  </div>
+<div id="textUpload" class="uploadSection" style="display: none;">
+  <form id="fileform" action="/facts/uploadfact" method="post">
+    <input type="text" placeholder="Write caption!!" name="factText" class="input-field">
+    <input type="submit" value="Upload" class="submit-btn" onclick="showLoader()">
+    <div id="loader" style="display: none;">Uploading...</div>
+     
+  </form>
+</div>
+
 
   <div class="card-image">
     <% user.posts.forEach(post=> { %>
@@ -178,7 +190,20 @@
   </div>
   </div>
   </div>
+
   <script>
+    const darkModeSwitch = document.querySelector('.ui-switch input');
+    const body = document.body;
+
+    darkModeSwitch.addEventListener('change', () => {
+      if (darkModeSwitch.checked) {
+        body.classList.add('dark-mode-enabled');
+      } else {
+        body.classList.remove('dark-mode-enabled');
+      }
+    });
+
+
     document.getElementById('userToggle').addEventListener('click', function () {
       document.getElementById('identity-container').style.transform = 'translateX(0%)';
     });

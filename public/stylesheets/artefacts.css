@@ -6,27 +6,53 @@ body {
   font-family: 'Raleway', sans-serif;
   width: 100vw;
 }
-
-.navbar {
-  display: flex;
-  justify-content: space-around;
-  width: 100vw;
-  background-color: red;
-  color: #fff;
-}
-
 .navbar ion-icon {
   margin-right: 10px;
   color: white;
   font-size: 30px;
 }
 
-.links {
+.navbar {
+  width: 100vw;
   display: flex;
-  text-decoration: none;
+  justify-content: space-around;
   align-items: center;
-  background: red;
+  background-color: red; /* Adjust to fit your design */
+  color: #fff;
+  height: 7vh;
+}
+
+.links {
+  position: relative;
+  text-decoration: none;
   color: white;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.links p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.links::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: white;
+  bottom: 0;
+  left: 0;
+  transition: width 0.2s ease-in-out;
+}
+
+.links:hover {
+  color: #ffcc00; /* Text color on hover */
+}
+
+.links:hover::after {
+  width: 100%; /* Expand underline */
 }
 
 .container {
