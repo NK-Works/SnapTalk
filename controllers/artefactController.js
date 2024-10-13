@@ -5,8 +5,8 @@ const postModel = require("../models/artefactModel");
 // Function to upload a post (artefact)
 async function uploadPost(req, res) {
   try {
-    if (!req.file) {
-      return res.status(404).send("No file were uploaded. ");
+    if (!req.file || !req.body.filecaption) {
+      return res.status(404).send("Please provide all the required fields");
     }
     const user = await userModel.findOne({
       username: req.session.passport.user,
