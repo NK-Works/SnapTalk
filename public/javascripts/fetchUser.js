@@ -1,5 +1,3 @@
-/* This code is made by Anneshu Nag, Student ID: 2210994760 */
-// JavaScript for the frontend part
 let selectedUserId;
 function selectUser(userId) {
   selectedUserId = userId;
@@ -22,7 +20,6 @@ function renderUserData(userData) {
 
   const userdataContainer = document.querySelector(".userdata");
   let imagesHTML = "";
-  let factsHTML = "";
 
   userData.posts.forEach((post) => {
 
@@ -46,26 +43,6 @@ function renderUserData(userData) {
                   </div>`;
   });
 
-  userData.facts.forEach((fact) => {
-    var likesHTML = '';
-    if (fact.likes && fact.likes.length > 0) {
-      likesHTML = `<p>${fact.likes.length} ${fact.likes.length === 1 ? 'like' : 'likes'}</p>`;
-    } else {
-      likesHTML = '<p>0 likes</p>';
-    }
-    var readMoreFormHTML = `<form action="/facts/fact/${fact._id}" method="get">
-                              <input type="submit" value="Read More">
-                            </form>`;
-
-    factsHTML += `<div class="post">
-                      <p>${fact.factText}</p>
-                      <div>
-                        ${likesHTML}
-                        ${readMoreFormHTML}
-                      </div>
-                  </div>`;
-  });
-
   const userHTML = `
     <div class="user-profile flex">
     <img src="${userData.dp}" alt="" />
@@ -74,14 +51,11 @@ function renderUserData(userData) {
         <p><span>Email: </span>${userData.email}</p>
         <p><span>Full Name: </span> ${userData.fullname}</p>
         <p><span>Posts: </span> ${userData.posts.length}</p>
-        <p><span>Facts: </span> ${userData.facts.length}</p>
     </div>
         </div>
 
         <div class="user-posts">
             ${imagesHTML}
-            ${factsHTML}
-
     </div>`;
   userdataContainer.innerHTML = userHTML;
 }
