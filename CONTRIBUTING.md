@@ -79,12 +79,12 @@ First off, thank you for considering contributing to SnapTalk! 🚀 Your contrib
 
 If you find a bug, you can help us by submitting an issue on GitHub Issues. Before opening an issue, please:
 
-	1.	Search existing issues to ensure it’s not already reported.
-	2.	If it’s a new bug, include detailed information, such as:
-     - A clear title and description.
-     - Steps to reproduce the bug.
-     - Expected and actual behavior.
-     - Any relevant screenshots or logs.
+	1. Search existing issues to ensure it’s not already reported.
+	2. If it’s a new bug, include detailed information, such as:
+	     - A clear title and description.
+	     - Steps to reproduce the bug.
+	     - Expected and actual behavior.
+	     - Any relevant screenshots or logs.
 
 ## Requesting New Features 🌟
 
