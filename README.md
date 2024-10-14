@@ -67,6 +67,14 @@ Welcome to **SnapTalk**! This is an interactive web-based platform that allows u
 - **Like and Comment**: Engage with other users' posts by liking and commenting on them.
 - **View Feed**: Browse through the latest snaps posted by other users.
 
+## Contributing 
+
+We welcome contributions to SnapTalk! Please check out our [Contributing Guidelines](./CONTRIBUTING.md) to get started. For code of conduct and community standards, review our [Code of Conduct](./CODE_OF_CONDUCT.md).
+
+## Contributor License Agreement (CLA) 📝
+
+By contributing to SnapTalk, you agree that your contributions will be licensed under the [MIT License](./LICENSE).
+
 ## Thank You! 🙏
 
 Thank you for contributing to **SnapTalk**! Your efforts help make this project better for everyone. We appreciate your time and contributions!
