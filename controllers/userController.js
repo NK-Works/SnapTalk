@@ -1,6 +1,8 @@
 /* This code is made by Anneshu Nag, Student ID: 2210994760 */
 const passport = require("passport");
 const userModel = require("../models/userModel");
+const { z } = require("zod");
+const { registerSchema } = require("../utils/validationSchemas");
 
 // Function to render user profile page
 async function userProfile(req, res) {
@@ -15,7 +17,7 @@ async function userProfile(req, res) {
 // Function to register a new user
 async function registerUser(req, res) {
   try {
-    const { username, email, fullname } = req.body;
+    const { username, email, fullname, password} = await registerSchema.parseAsync(req.body);
 
     const existingUser = await userModel.findOne({ username });
 
@@ -26,7 +28,7 @@ async function registerUser(req, res) {
 
     const userData = new userModel({ username, email, fullname });
 
-    userModel.register(userData, req.body.password, (err, user) => {
+    userModel.register(userData, password, (err, user) => {
       if (err) {
         console.error(err);
         req.flash(
@@ -42,9 +44,15 @@ async function registerUser(req, res) {
       });
     });
   } catch (error) {
-    console.log(error);
-    req.flash("error", "An error occurred during registration.");
-    res.redirect("/");
+    if (error instanceof z.ZodError) {
+      req.flash('error', `One or two input is invalid. Please check again!`);
+      res.redirect("/");
+    } else {
+      console.log(error);
+      req.flash("error", "An error occurred during registration.");
+      res.redirect("/");
+    }
+    
   }
 }
 
